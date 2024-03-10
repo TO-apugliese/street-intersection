@@ -2,10 +2,13 @@
   "name": "street-intersection",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": " nx run-many -t build",
+    "start": "nx serve ui"
+  },
   "private": true,
   "devDependencies": {
-    "@angular-devkit/build-angular": "~17.1.0",
+    "@angular-devkit/build-angular": "^17.2.3",
     "@angular-devkit/core": "~17.1.0",
     "@angular-devkit/schematics": "~17.1.0",
     "@angular-eslint/eslint-plugin": "~17.0.0",
