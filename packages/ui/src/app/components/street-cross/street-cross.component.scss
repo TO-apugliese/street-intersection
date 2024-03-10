@@ -1,0 +1,116 @@
+$max-heigt-and-width: 867px;
+$street-width: 150px;
+$street-length-until-crossing: ($max-heigt-and-width - $street-width) / 2;
+$stree-color: grey;
+$traffic-light-placeholder-width: 70px;
+$traffic-light-placeholder-height: 120px;
+
+.street-cross {
+    z-index: 1;
+    position: relative;
+    width: $max-heigt-and-width;
+    height: $max-heigt-and-width;
+    background: lightgrey;
+}
+
+.car-traffic-light,
+.pedestrian-traffic-light {
+    position: absolute;
+    z-index: 4;
+    width: $traffic-light-placeholder-width;
+    height: $traffic-light-placeholder-height;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.street {
+    background-color: $stree-color;
+    position: absolute;
+
+    &--horizontal {
+        z-index: 3;
+        height: $street-width;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            height: 3px;
+            width: 100%;
+            background-image: linear-gradient(to right, white 33%, rgba(255, 255, 255, 0) 0%);
+            background-position: bottom;
+            background-size: 50px 3px;
+            background-repeat: repeat-x;
+        }
+
+        .car-traffic-light {
+            left: $street-length-until-crossing - $traffic-light-placeholder-width - 10px;
+            top: -$traffic-light-placeholder-height - 10px;
+        }
+    }
+
+    &--vertical {
+        z-index: 2;
+        top: 0;
+        left: 50%;
+        height: $max-heigt-and-width;
+        transform: translateX(-50%);
+        width: $street-width;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            transform: translateX(0);
+            height: 100%;
+            width: 100%;
+            /*Vertical*/
+            background-image: linear-gradient(white 33%, rgba(255, 255, 255, 0) 0%);
+            background-position: right;
+            background-size: 3px 50px;
+            background-repeat: repeat-y;
+        }
+
+        .car-traffic-light {
+            bottom: $street-length-until-crossing - $traffic-light-placeholder-height - 10px;
+            right: -$traffic-light-placeholder-width - 10px;
+        }
+    }
+}
+
+.pedestrian-crossing {
+    background-color: $stree-color;
+    z-index: 4;
+    position: absolute;
+    height: 100%;
+    width: $street-width;
+    border: 2px solid white;
+    box-sizing: border-box;
+    right: 100px;
+    overflow: hidden;
+
+    table {
+        width: 100%;
+    }
+
+    tr {
+        background-color: $stree-color;
+        height: 15px;
+    }
+
+    tr:nth-child(2n+1) {
+        background-color: white;
+    }
+}
+
+.pedestrian-traffic-light {
+    top: -$traffic-light-placeholder-height - 10px;
+    right: 100px + $street-width / 2;
+    transform: translateX(50%);
+}

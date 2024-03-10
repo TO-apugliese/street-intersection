@@ -1,0 +1,25 @@
+<div class="street-cross">
+    <div class="street street--horizontal">
+        <div class="car-traffic-light">
+            <ng-content select="[main-street-car-traffic-light]"></ng-content>
+        </div>
+        <div class="pedestrian-traffic-light">
+            <ng-content select="[main-street-pedestrian-traffic-light]"></ng-content>
+        </div>
+        <div class="pedestrian-crossing">
+            <table>
+                <tr *ngFor="let n of numSequence(9)">
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="street street--vertical">
+        <div class="car-traffic-light">
+            <ng-content select="[side-street-car-traffic-light]"></ng-content>
+
+        </div>
+    </div>
+    <div class="car-trafic-light__mainstreet"></div>
+    <div class="car-trafic-light__sidestreet"></div>
+</div>
