@@ -14,14 +14,12 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome street-intersection'
-    );
+    expect(compiled.querySelector('h1')?.textContent).toContain('Welcome ui');
   });
 
-  it(`should have as title 'street-intersection'`, () => {
+  it(`should have as title 'ui'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('street-intersection');
+    expect(app.title).toEqual('ui');
   });
 });

@@ -1,23 +1,23 @@
 {
-  "name": "street-intersection",
-  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "name": "ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "street-intersection",
-  "sourceRoot": "./src",
+  "prefix": "app",
+  "sourceRoot": "packages/ui/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/street-intersection",
-        "index": "./src/index.html",
-        "main": "./src/main.ts",
+        "outputPath": "dist/packages/ui",
+        "index": "packages/ui/src/index.html",
+        "main": "packages/ui/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "./tsconfig.app.json",
+        "tsConfig": "packages/ui/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["./src/favicon.ico", "./src/assets"],
-        "styles": ["./src/styles.scss"],
+        "assets": ["packages/ui/src/favicon.ico", "packages/ui/src/assets"],
+        "styles": ["packages/ui/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -51,10 +51,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "street-intersection:build:production"
+          "buildTarget": "ui:build:production"
         },
         "development": {
-          "buildTarget": "street-intersection:build:development"
+          "buildTarget": "ui:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -62,7 +62,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "street-intersection:build"
+        "buildTarget": "ui:build"
       }
     }
   }
