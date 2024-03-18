@@ -1,0 +1,10 @@
+<div class="wrapper" *ngIf="instance">
+    <div class="traffic-light"
+         [class.traffic-light--pedastrian]="mode === TrafficLightMode.PEDESTRIAN">
+        <div class="traffic-light__light" [class.traffic-light__light--green]="instance.isGreen"></div>
+        <div *ngIf="mode === TrafficLightMode.CAR" class="traffic-light__light" [class.traffic-light__light--yellow]="instance.isYellow"></div>
+        <div class="traffic-light__light" [class.traffic-light__light--red]="instance.isRed"></div>
+    </div>
+    <div class="counter" *ngIf="instance.counter !== 0">{{ instance.counter }}</div>
+    <button *ngIf="hasRequester" [disabled]="instance.isProcessingRequest" class="request-trigger" (click)="request()">request</button>
+</div>

@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
-import { StreetCrossComponent } from './street-cross/street-cross.component';
+import {Component} from '@angular/core';
+import {StreetCrossComponent, TrafficLightComponent, TrafficLightDirection, TrafficLightMode,} from './components';
+import {StreetType, TrafficLight, TrafficLightState} from "./service/traffic-light";
 
 @Component({
   standalone: true,
-  imports: [StreetCrossComponent],
+  imports: [StreetCrossComponent, TrafficLightComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'ui';
+  TrafficLightMode = TrafficLightMode;
+  StreetType = StreetType;
+  TrafficLightDirection = TrafficLightDirection;
 }

@@ -1,11 +1,11 @@
 <app-street-cross class="centered">
     <div main-street-car-traffic-light>
-        traffic light
+        <app-traffic-light [placeOfUse]="StreetType.MAIN" [hasRequester]="false"></app-traffic-light>
     </div>
     <div side-street-car-traffic-light>
-        traffic light
+        <app-traffic-light [placeOfUse]="StreetType.SIDE"></app-traffic-light>
     </div>
     <div main-street-pedestrian-traffic-light>
-        traffic light
+        <app-traffic-light [placeOfUse]="StreetType.MAIN" [mode]="TrafficLightMode.PEDESTRIAN"></app-traffic-light>
     </div>
 </app-street-cross>
